@@ -11,9 +11,9 @@ lasso<-function(x,y,alpha,tol=10^(-8))
     step=0
     while(rou>tol)
     {
-      if (any(abs(cor(r,scale_x[,non_active]))>=rou))   #modify -active_set to non_active
+      if (any(abs(cor(r,scale_x[,non_active]))>=rou))
       {
-        index=which(abs(cor(r,scale_x[,non_active]))>=rou) #modify -active_set to non_active
+        index=which(abs(cor(r,scale_x[,non_active]))>=rou)
         active_set=rbind(matrix(active_set),non_active[index])
         non_active=non_active[-index]
       }
