@@ -7,7 +7,7 @@ lar<-function(x,y,alpha,tol=10^(-8))
   r=y-mean(y)   
   r0=r   
   scale_x=scale(x,center=T,scale=T)
-#initialize parameters,correlation,active_set and non-active_set respectively
+#initialize coefficients,correlation,active_set and non-active_set respectively
 #初始化系数,相关系数，活跃集合，与之对应的非活跃集合
   beta=matrix(rep(0,ncol(x)))
   rou=abs(cor(r,scale_x))
@@ -28,7 +28,7 @@ lar<-function(x,y,alpha,tol=10^(-8))
            active_set=rbind(matrix(active_set),non_active[index])
            non_active=non_active[-index]
           }
-#calculate the direction of parameters in active_set,the new resdiual and new correaltion
+#calculate the direction of coefficients in active_set,the new resdiual and new correaltion
 #计算活跃集合中系数前进的方向，并计算新的残差以及新的相关系数
     x_a=as.matrix(scale_x[,active_set])
     beta[active_set]=beta[active_set]+alpha*(solve(t(x_a)%*%x_a)%*%t(x_a)%*%r)
@@ -36,7 +36,7 @@ lar<-function(x,y,alpha,tol=10^(-8))
     rou=as.numeric(abs(cor(r,scale_x[,active_set[1]])))
     step=step+1
   }
-  #get the parameters with respect to original data(not standardized)
+  #get the coefficients with respect to original data(not standardized)
   #计算原始数据对应的系数
   beta=beta/apply(x,2,sd)
   beta0=as.matrix(mean(y)-apply(x,2,mean)%*%beta)
