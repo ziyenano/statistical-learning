@@ -1,5 +1,5 @@
->These programs are implementation of some algorithms related to statistical learning.  
-Here i choose R language since R is extremely convenient to make it .  
+>These programs are implementation of some algorithms related to statistical learning.
+Here i choose R language since R is extremely convenient to make it .
 For a more comfortable communication,i'll give some notes in Englist and Chinese respectively.  
 Thank you for your watching!
 
