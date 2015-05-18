@@ -1,3 +1,6 @@
+Implementation of Least Angle Regression
+-------
+```{r}
 #here alpha is called learning rate,a small value is suggested,such as 0.05
 #这里alpha是学习速率，建议给一个比较小的值，比如0.05
 lar<-function(x,y,alpha,tol=10^(-8))        
@@ -14,8 +17,8 @@ lar<-function(x,y,alpha,tol=10^(-8))
   active_set=which(rou==max(rou))
   non_active=(1:ncol(x))[-active_set]
   rou=max(rou)
-#generate a variable step to record the iteration steps
-#生成变量step用来记录迭代的步数
+#generate a variable step to record the iteration steps  
+#生成变量step用来记录迭代的步
   step=0
   while(rou>tol)
   {
@@ -36,10 +39,11 @@ lar<-function(x,y,alpha,tol=10^(-8))
     rou=as.numeric(abs(cor(r,scale_x[,active_set[1]])))
     step=step+1
   }
-  #get the coefficients with respect to original data(not standardized)
-  #计算原始数据对应的系数
+#get the coefficients with respect to original data(not standardized)
+#计算原始数据对应的系数
   beta=beta/apply(x,2,sd)
   beta0=as.matrix(mean(y)-apply(x,2,mean)%*%beta)
   #return(rbind(beta0,beta))
   return(list(beta=rbind(beta0,beta),step=step))
 }
+```

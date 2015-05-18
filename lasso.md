@@ -1,4 +1,6 @@
-#lasso implemented by lars modification
+Lasso implemented by Lars modification
+---
+```{r}
 #hence this program is very similar to lars,only a snippet added
 #修改Lars实现lasso
 #here variable shrink is penalized tuning parameters,which ranges from  0 to 1.if set 1 the reslut is 
@@ -29,7 +31,9 @@ lasso<-function(x,y,alpha,shrink,tol=10^(-8))
       non_active=non_active[-index]
     }
     x_a=as.matrix(scale_x[,active_set])
-    #lasso modification
+```
+**lasso modification**
+```{r}
     beta_pre=beta[active_set]
     beta[active_set]=beta[active_set]+alpha*(solve(t(x_a)%*%x_a)%*%t(x_a)%*%r)
     #if a nonzero coefficient cross zero,remove from the active set and recopute the olse direction
@@ -42,7 +46,9 @@ lasso<-function(x,y,alpha,shrink,tol=10^(-8))
     }
     x_a=as.matrix(scale_x[,active_set])
     beta[active_set]=beta[active_set]+alpha*(solve(t(x_a)%*%x_a)%*%t(x_a)%*%r)
-    # end modification
+```
+**end modification**
+```{r}
     r=r0-x_a%*%beta[active_set] 
     rou=as.numeric(abs(cor(r,scale_x[,active_set[1]])))
     step=step+1
@@ -51,3 +57,4 @@ lasso<-function(x,y,alpha,shrink,tol=10^(-8))
   beta0=as.matrix(mean(y)-apply(x,2,mean)%*%beta)
   return(list(beta=rbind(beta0,beta),step=step))
 }
+```
