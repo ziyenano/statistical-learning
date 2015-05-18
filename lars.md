@@ -17,7 +17,7 @@ lar<-function(x,y,alpha,tol=10^(-8))
   active_set=which(rou==max(rou))
   non_active=(1:ncol(x))[-active_set]
   rou=max(rou)
-generate a variable step to record the iteration steps  
+#generate a variable step to record the iteration steps  
 #生成变量step用来记录迭代的步
   step=0
   while(rou>tol)
