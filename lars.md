@@ -1,3 +1,5 @@
+Implementation of Least Angle Regression
+-------
 #here alpha is called learning rate,a small value is suggested,such as 0.05
 #这里alpha是学习速率，建议给一个比较小的值，比如0.05
 lar<-function(x,y,alpha,tol=10^(-8))        
