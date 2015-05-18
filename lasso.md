@@ -54,3 +54,7 @@ lasso<-function(x,y,alpha,shrink,tol=10^(-8))
   return(list(beta=rbind(beta0,beta),step=step))
 }
 ```
+```{r }
+data(cars)
+summary(cars)
+```
