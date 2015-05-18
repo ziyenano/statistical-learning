@@ -1,4 +1,6 @@
-#lasso implemented by lars modification
+Lasso implemented by Lars modification
+---
+```{r}
 #hence this program is very similar to lars,only a snippet added
 #修改Lars实现lasso
 #here variable shrink is penalized tuning parameters,which ranges from  0 to 1.if set 1 the reslut is 
@@ -51,3 +53,4 @@ lasso<-function(x,y,alpha,shrink,tol=10^(-8))
   beta0=as.matrix(mean(y)-apply(x,2,mean)%*%beta)
   return(list(beta=rbind(beta0,beta),step=step))
 }
+```
