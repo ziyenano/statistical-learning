@@ -1,3 +1,6 @@
+Lasso implemented by Pathwish_Coordinate_Optimization
+-----------
+```{r}
 path_copt<-function(x,y,lambda,tol=1*10^-8)
 {
   r=y-mean(y)
@@ -23,7 +26,4 @@ path_copt<-function(x,y,lambda,tol=1*10^-8)
   print(s)
   return(beta/std)
 }
-
-data(mtcars)
-y=mtcars$mpg
-x=with(mtcars,{cbind(cyl,disp,drat)})
+```
