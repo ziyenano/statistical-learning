@@ -33,7 +33,7 @@ lasso<-function(x,y,alpha,shrink,tol=10^(-8))
     x_a=as.matrix(scale_x[,active_set])
 ```
 ```{r}
-    ***lasso modification***
+   **lasso modification**
     beta_pre=beta[active_set]
     beta[active_set]=beta[active_set]+alpha*(solve(t(x_a)%*%x_a)%*%t(x_a)%*%r)
     #if a nonzero coefficient cross zero,remove from the active set and recopute the olse direction
@@ -47,7 +47,7 @@ lasso<-function(x,y,alpha,shrink,tol=10^(-8))
     x_a=as.matrix(scale_x[,active_set])
     beta[active_set]=beta[active_set]+alpha*(solve(t(x_a)%*%x_a)%*%t(x_a)%*%r)
 ```
-     ***end modification***
+     **end modification**
 ```{r}
     r=r0-x_a%*%beta[active_set] 
     rou=as.numeric(abs(cor(r,scale_x[,active_set[1]])))
