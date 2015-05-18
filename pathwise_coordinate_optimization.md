@@ -1,4 +1,4 @@
-Lasso implemented by Pathwish_Coordinate_Optimization
+Lasso implemented by Pathwise_Coordinate_Optimization
 -----------
 ```{r}
 path_copt<-function(x,y,lambda,tol=1*10^-8)
