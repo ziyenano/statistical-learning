@@ -5,7 +5,8 @@ path_copt<-function(x,y,lambda,tol=1*10^-8)
 {
   r=y-mean(y)
   c_x=scale(x,center=T,scale=F)
-  std=apply(c_x,2,function(x) norm(matrix(x),type='f'))   ##标准化 均值为0 范数为1
+  ##standardize with mean zero and norm one
+  std=apply(c_x,2,function(x) norm(matrix(x),type='f'))
   c_x=c_x%*%diag(1/std)  
   beta_old=matrix(0,ncol(x),1)
   beta=beta_old
