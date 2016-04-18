@@ -16,9 +16,11 @@ path_copt<-function(x,y,lambda,tol=1*10^-8)
     beta_old=beta
     for (i in 1:length(beta))
     {
-      p_resdiual=r-c_x[,-i]%*%beta[-i]                    ##partial residual
-      p_beta=t(c_x[,i])%*%p_resdiual/(c_x[,i]%*%c_x[,i])  ##OLSE
-      beta[i]=sign(p_beta)*max((abs(p_beta)-lambda),0)    ##在独立情况下，lasso与olse估计的关系
+      ##partial residual
+      p_resdiual=r-c_x[,-i]%*%beta[-i]                   
+      p_beta=t(c_x[,i])%*%p_resdiual/(c_x[,i]%*%c_x[,i])  
+      ##the relation between Lasso estimator and OLSE in independent case
+      beta[i]=sign(p_beta)*max((abs(p_beta)-lambda),0)    
     }     
     eps=norm(beta-beta_old)
     s=s+1
